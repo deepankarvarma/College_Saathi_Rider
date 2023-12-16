@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "96646132979",
+    "project_id": "college-saathi-capstone-9731e",
+    "storage_bucket": "college-saathi-capstone-9731e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96646132979:android:af93884a2615d89855b386",
+        "android_client_info": {
+          "package_name": "com.example.college_saathi_final"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96646132979-73c5vrsfaen1rdinojor9k8qlfodpimb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.college_saathi_final",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "96646132979-n7fc7tu9oqlufe34m5los48dkcf8a4cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1WGJUgjhlKgvDcwp0XH6cgwVd7TNvs5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96646132979-n7fc7tu9oqlufe34m5los48dkcf8a4cm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "96646132979-j6cros30oju95jcv2bc14vlm0bqot86t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.collegeSaathi.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
