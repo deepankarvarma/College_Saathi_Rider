@@ -52,44 +52,38 @@ class AuthenticationRepository extends GetxController {
 
   /// [EmailAuthentication] - SignIn
   Future<Map<String, dynamic>?> loginWithEmailAndPassword(
-    String email, String password, String collection) async {
-      const String YOUR_APP_TYPE = 'college_saathi';
+    String email, String password) async {
   try {
-    CollectionReference userCollection =
-        FirebaseFirestore.instance.collection(collection);
+    UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
 
-    QuerySnapshot querySnapshot = await userCollection
-        .where('email', isEqualTo: email)
-        .limit(1)
-        .get();
+    // Check if the user is a driver
+    try {
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('Drivers')
+          .doc(userCredential.user!.uid)
+          .get();
 
-    if (querySnapshot.docs.isNotEmpty) {
-      // User found
-      String userType = (collection == 'Users') ? 'user' : 'driver';
-      
-      // Check userType and app type
-      if (userType != 'user' && YOUR_APP_TYPE != 'college_saathi_driver') {
-        // User is a driver but trying to log in to the wrong app
+      if (!userSnapshot.exists) {
+        // User is not a driver, show an error
         TLoaders.errorSnackBar(
-          title: 'Invalid App',
-          message: 'Drivers can only log in to the driver app.',
+          title: 'Invalid User',
+          message: 'Only Drivers can log in to the driver app.',
         );
+        await _auth.signOut(); // Sign out the user
         return null;
       }
-
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-
-      return {
-        'userCredential': userCredential,
-        'userType': userType,
-      };
-    } else {
-      // User not found
-      return null;
+    } catch (e) {
+      // Handle any errors in the database query
+      throw 'Database error while checking user type';
     }
+
+    return {
+      'userCredential': userCredential,
+      'isDriver': true,
+    };
   } on FirebaseAuthException catch (e) {
     throw TFirebaseAuthException(e.code).message;
   } on FirebaseException catch (e) {
@@ -102,6 +96,7 @@ class AuthenticationRepository extends GetxController {
     throw 'Something went wrong';
   }
 }
+
 
 
   // Re authenticate user

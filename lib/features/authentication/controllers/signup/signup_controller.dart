@@ -63,6 +63,7 @@ class SignUpController extends GetxController {
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         ricknum: username.text.trim(),
+        availability: true,
         email: email.text.trim(),
         phoneNumber: phoneNumber.text.trim(),
         profilePicture: '',

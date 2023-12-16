@@ -57,6 +57,7 @@ class UserController extends GetxController {
           firstName: nameParts[0],
           lastName: nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
           ricknum: username,
+          availability: true,
           email: userCredentials.user!.email ?? '',
           phoneNumber: userCredentials.user!.phoneNumber ?? '',
           profilePicture: userCredentials.user!.photoURL ?? '',

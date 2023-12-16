@@ -10,6 +10,7 @@ class DriverModel {
   String lastName;
   final String ricknum;
   final String email;
+  bool availability;
   String phoneNumber;
   String profilePicture;
 
@@ -18,6 +19,7 @@ class DriverModel {
     required this.id,
     required this.firstName,
     required this.lastName,
+    required this.availability,
     required this.ricknum,
     required this.email,
     required this.phoneNumber,
@@ -50,6 +52,7 @@ class DriverModel {
       id: '',
       firstName: '',
       lastName: '',
+      availability: false,
       ricknum: '',
       email: '',
       phoneNumber: '',
@@ -62,6 +65,7 @@ class DriverModel {
       'LastName': lastName,
       'Username': ricknum,
       'Email': email,
+      'Availability': availability,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
     };
@@ -76,6 +80,7 @@ class DriverModel {
         id: document.id,
         firstName: data['FirstName'] ?? '',
         lastName: data['LastName'] ?? '',
+        availability: true,
         ricknum: data['Username'] ?? '',
         email: data['Email'] ?? '',
         phoneNumber: data['PhoneNumber'] ?? '',
