@@ -68,6 +68,24 @@ class UserRepository extends GetxController {
   }
 
   // Update any field in specific user collection
+  Future<void> updateAvailabilityStatus(Map<String, dynamic> json) async {
+    try {
+      await _db
+          .collection("Drivers")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .update(json);
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  // Update any field in specific user collection
   Future<void> updateSingleField(Map<String, dynamic> json) async {
     try {
       await _db

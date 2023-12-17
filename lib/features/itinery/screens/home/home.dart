@@ -1,4 +1,5 @@
 import 'package:college_saathi_final/features/personalization/controllers/home_controller.dart';
+import 'package:college_saathi_final/features/personalization/screens/profile/section_heading.dart';
 import 'package:college_saathi_final/utils/constants/sizes.dart';
 import 'package:college_saathi_final/utils/constants/text_strings.dart';
 import 'package:college_saathi_final/utils/validators/validation.dart';
@@ -16,17 +17,39 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(),
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Form(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Form(
                 key: controller.homeFormKey,
                 child: Column(
-                  children: [                  
-                      
+                  children: [
+                    Row(
+                      children: [
+                        
+                        const Padding(
+                          padding:  EdgeInsets.all(8.0),
+                          child:  TSectionHeading(
+                          title: 'Toggle Availability Status', showActionButton: false),
+                        ),
+                        const SizedBox(
+                          width: TSizes.spaceBtwInputFields*4,
+                        ),
+                        Obx(()=> Switch(
+                            value: controller.isToggleOn.value,
+                            onChanged: (value) {
+                              controller.toggleSwitch();
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: TSizes.spaceBtwSections,
+                    ),
                     // Sign Up Button
                     SizedBox(
                       width: double.infinity,
@@ -38,9 +61,8 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              
-              ],
-            ),
+            ],
+          ),
         ),
       ),
     );
