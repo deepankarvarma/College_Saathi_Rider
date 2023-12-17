@@ -49,6 +49,31 @@ class UserRepository extends GetxController {
     }
   }
 
+  Future<bool> getUserAvailability() async {
+    try {
+      final documentSnapshot = await _db
+          .collection("Drivers")
+          .doc(AuthenticationRepository.instance.authUser?.uid)
+          .get();
+
+      if (documentSnapshot.exists) {
+        // Assuming "Availability" is a boolean field in your Firestore document
+        bool userAvailability = documentSnapshot.get('Availability') == true;
+        return userAvailability;
+      } else {
+        return false; // Assuming the default availability is false if the document doesn't exist
+      }
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
   // Function to update user data in firestore
   Future<void> updateUserDetails(DriverModel updatedUser) async {
     try {

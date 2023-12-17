@@ -1,6 +1,7 @@
 import 'package:college_saathi_final/common/widgets/loaders/loaders.dart';
 import 'package:college_saathi_final/data/repositories/user/user_repository.dart';
 import 'package:college_saathi_final/data/services/network_manager.dart';
+import 'package:college_saathi_final/features/authentication/screens/login/requests.dart';
 import 'package:college_saathi_final/features/personalization/controllers/user_controller.dart';
 import 'package:college_saathi_final/utils/constants/image_strings.dart';
 import 'package:college_saathi_final/utils/popups/full_screen_loader.dart';
@@ -15,7 +16,29 @@ class HomeController extends GetxController {
   
   final RxBool isToggleOn = true.obs;
   GlobalKey<FormState> homeFormKey = GlobalKey<FormState>();
-  
+  @override
+  void onInit() {
+    super.onInit();
+    // Call the function to update availability when the app starts
+    updateAvailabilityOnAppStart();
+  }
+
+  Future<void> updateAvailabilityOnAppStart() async {
+    try {
+      // Update availability to true in the "Drivers" collection
+      final userRepository = Get.put(UserRepository());
+      await userRepository.updateAvailabilityStatus({'Availability': true});
+
+      // Optionally, update the Rx User value if needed
+      // userController.user.value.availability = true;
+
+      // Log success or show a message if needed
+      print('Availability updated on app start: true');
+    } catch (e) {
+      // Handle errors if any
+      print('Error updating availability on app start: $e');
+    }
+  }
   Future<void> makeRequest() async {
     try {
       // Start Loading
@@ -35,30 +58,29 @@ class HomeController extends GetxController {
         return;
       }
 
-      // Register user in the Firebase Authentication & Save user data in the Firebase
-      // final userCredential = await AuthenticationRepository.instance
-      //     .registerWithEmailAndPassword(
-      //         email.text.trim(), password.text.trim());
+      // Check if availability is true
+    final userRepository = Get.put(UserRepository());
+    bool userAvailability = await userRepository.getUserAvailability();
 
-      // Save Authenticated user data in the Firebase Firestore
-      // final newUser = RequestModel(
-      //   id: controller.user.value.id,
-      //   source: from.text.trim(),
-      //   destination: to.text.trim(),
-      //   isAccepted: false,
-
-      // );
-
-      // final userRepository = Get.put(RequestRepository());
-      // await userRepository.saveUserRecord(newUser);
+    // Check if user's availability is true
+    if (!userAvailability) {
+      // Remove Loader
+      TFullScreenLoader.stopLoading();
+      // Show Error Message
+      TLoaders.errorSnackBar(
+        title: 'Error',
+        message: 'Turn on Availability first before making a request',
+      );
+      return;
+    }
       // Remove Loader
       TFullScreenLoader.stopLoading();
       // Show Success Message
-      TLoaders.successSnackBar(
-          title: 'Congratulations', message: 'Your request has been sent');
+      // TLoaders.successSnackBar(
+      //     title: 'Congratulations', message: 'Your request has been sent');
 
       // Move to Verify Email Screen
-      //Get.to(() => VerifyEmailScreen(email: email.text.trim()));
+      Get.to(() => const requests());
     } catch (e) {
       // Remove Loader
       TFullScreenLoader.stopLoading();

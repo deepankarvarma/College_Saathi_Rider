@@ -7,13 +7,13 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class ridehistory extends StatelessWidget {
-  const ridehistory({super.key});
+class requests extends StatelessWidget {
+  const requests({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppBar(
-        title: Text('Ride History')
+        title: Text('User Requests'),showBackArrow: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -47,7 +47,6 @@ class RideHistoryItem extends StatefulWidget {
 }
 
 class _RideHistoryItemState extends State<RideHistoryItem> {
-  double _rating = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -56,33 +55,13 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
       child: Stack(
         children: [
           ListTile(
-            title: Text('Ride from Place A to Place B'),
+            title: Text('Request from Place A to Place B'),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Rickshaw ID: ${widget.rideId}'),
                 Text('Fare: Rs 10'),
-                Row(
-                  children: [
-                    RatingBar.builder(
-                      initialRating: _rating,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: false,
-                      itemCount: 5,
-                      itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      onRatingUpdate: (rating) {
-                        setState(() {
-                          _rating = rating;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+                
               ],
             ),
             onTap: () {
@@ -90,7 +69,7 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
             },
           ),
           Positioned(
-            bottom: 32,
+            bottom: 16,
             right: 8,
             child: ElevatedButton(
               onPressed: (){},
@@ -101,7 +80,7 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
               child: Container(
                 width: 24,
                 height: 24,
-                child: Icon(Icons.arrow_outward, size: 20),
+                child: Icon(Icons.check, size: 20),
               ),
             ),
           ),

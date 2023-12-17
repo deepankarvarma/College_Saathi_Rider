@@ -29,7 +29,25 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        
+                        // Expanded(
+                        //   child: controller.isToggleOn
+                        //       ? TextFormField(
+                        //           controller: controller.isToggleOn,
+                        //           validator: (value) => TValidator.validateEmptyText(
+                        //             'Source',
+                        //             value,
+                        //           ),
+                        //           expands: false,
+                        //           decoration: const InputDecoration(
+                        //             labelText: TTexts.tContinue,
+                        //             prefixIcon: Icon(Iconsax.location),
+                        //           ),
+                        //         )
+                        //       : Text(
+                        //           'Toggle is off',
+                        //           style: TextStyle(fontSize: 16),
+                        //         ),
+                        // ),
                         const Padding(
                           padding:  EdgeInsets.all(8.0),
                           child:  TSectionHeading(
