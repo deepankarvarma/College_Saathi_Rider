@@ -4,6 +4,7 @@ class TTexts {
 
   // -- GLOBAL Texts
   static const String and = "and";
+  static const String check = "Check Booking Requests";
   static const String skip = "Skip";
   static const String done = "Done";
   static const String submit = "Submit";

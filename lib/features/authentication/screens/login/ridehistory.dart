@@ -1,16 +1,7 @@
 import 'dart:math';
 
-import 'package:college_saathi_final/common/styles/spacing_styles.dart';
-import 'package:college_saathi_final/features/authentication/controllers/login/login_controller.dart';
-import 'package:college_saathi_final/features/authentication/screens/password_configuration/forget_password.dart';
-import 'package:college_saathi_final/features/authentication/screens/signup/signup.dart';
-import 'package:college_saathi_final/navigation_menu.dart';
-import 'package:college_saathi_final/utils/constants/colors.dart';
-import 'package:college_saathi_final/utils/constants/image_strings.dart';
-import 'package:college_saathi_final/utils/constants/sizes.dart';
-import 'package:college_saathi_final/utils/constants/text_strings.dart';
-import 'package:college_saathi_final/utils/helpers/helper_functions.dart';
-import 'package:college_saathi_final/utils/validators/validation.dart';
+
+import 'package:college_saathi_final/tapp_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
@@ -21,7 +12,7 @@ class ridehistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: TAppBar(
         title: Text('Ride History'),
       ),
       body: SingleChildScrollView(
@@ -80,7 +71,7 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
                       allowHalfRating: false,
                       itemCount: 5,
                       itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                      itemBuilder: (context, _) => Icon(
+                      itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
@@ -99,20 +90,10 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
             },
           ),
           Positioned(
-            top: 10,
-            right: 25,
-            child: Icon(Icons.check, color: Colors.green),
-          ),
-          Positioned(
-            bottom: 8,
+            bottom: 32,
             right: 8,
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ComplaintPage()),
-                );
-              },
+              onPressed: (){},
               style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.all(6),
                 shape: CircleBorder(),
@@ -120,25 +101,11 @@ class _RideHistoryItemState extends State<RideHistoryItem> {
               child: Container(
                 width: 24,
                 height: 24,
-                child: Icon(Icons.warning, size: 16),
+                child: Icon(Icons.arrow_outward, size: 20),
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class ComplaintPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('File a Complaint'),
-      ),
-      body: Center(
-        child: Text('Complaint form goes here.'),
       ),
     );
   }

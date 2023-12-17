@@ -67,6 +67,12 @@ class ProfileScreen extends StatelessWidget {
                     value: controller.user.value.ricknum,
                     onPressed: () {}),
               ),
+              Obx(
+                () => TProfileMenu(
+                    title: 'Availability',
+                    value: controller.user.value.availability.toString(),
+                    onPressed: () {}),
+              ),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
