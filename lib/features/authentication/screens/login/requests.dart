@@ -1,12 +1,13 @@
 import 'package:college_saathi_final/features/authentication/controllers/signup/requests_controller.dart';
 import 'package:college_saathi_final/tapp_bar.dart';
+import 'package:college_saathi_final/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RequestsPage extends StatelessWidget {
   // Reference to the RequestController
   final RequestController requestController = Get.put(RequestController());
-
+  final controller=Get.put(RequestController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +55,17 @@ class RequestsPage extends StatelessWidget {
                       SizedBox(height: 8),
                       Text('Destination: ${request.destination}'),
                       // Add more fields as needed
+                      const SizedBox(
+                      height: TSizes.spaceBtwSections/2,
+                    ),
+                    // Sign Up Button
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: () => controller.fetchRequests(),
+                        child: const Text('Accept'),
+                      ),
+                    )
                     ],
                   ),
                 );

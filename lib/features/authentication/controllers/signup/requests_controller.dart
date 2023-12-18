@@ -1,5 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:college_saathi_final/common/widgets/loaders/loaders.dart';
+import 'package:college_saathi_final/data/repositories/authentication/authentication_repository.dart';
 import 'package:college_saathi_final/data/repositories/user/user_repository.dart';
 import 'package:college_saathi_final/features/personalization/models/request_model.dart';
+import 'package:college_saathi_final/utils/constants/image_strings.dart';
+import 'package:college_saathi_final/utils/constants/sizes.dart';
+import 'package:college_saathi_final/utils/popups/full_screen_loader.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -20,10 +28,71 @@ class RequestController extends GetxController {
     try {
       final allRequests = await userRepository.fetchRequests(); // Adjust the method name accordingly
       requests(allRequests);
+      acceptRequestPopup(allRequests.first);
     } catch (e) {
       requests(<RequestModel>[]); // Handle the error as needed
     }
   }
+  void acceptRequestPopup(RequestModel request) {
+    Get.defaultDialog(
+      contentPadding: const EdgeInsets.all(TSizes.md),
+      title: 'Accept Request',
+      middleText:
+          'Are you sure you want to accept this ride request? The ride cannot be cancelled afterwards.',
+      confirm: ElevatedButton(
+        onPressed: () async => acceptRequest(request),
+        style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            side: const BorderSide(color: Colors.green)),
+        child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
+            child: Text('Accept')),
+      ), // ElevatedButton
+      cancel: OutlinedButton(
+        child: const Text('Back'),
+        onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+      ), // OutlinedButton
+    );
+  }
+// ...
+
+void acceptRequest(RequestModel request) async {
+  try {
+    // Open loading dialog
+    TFullScreenLoader.openLoadingDialog('Processing', TImages.appleLogo);
+
+    // Get the current user ID (driver ID)
+    String driverId = FirebaseAuth.instance.currentUser?.uid ?? '';
+    
+    // Get the user ID from the request
+    String userId = request.id; // Assuming the request ID is the user ID
+    
+    // Update Request document in Firestore
+    await FirebaseFirestore.instance.collection('Requests').doc(request.id).update({
+      'Driver Id': driverId,
+      'User Id': userId, // New field
+      'Is Accepted': true,
+    });
+
+    // Close loading dialog
+    TFullScreenLoader.stopLoading();
+
+    // Show success message or perform any other necessary actions
+
+    // Assuming you want to show a success message
+    TLoaders.successSnackBar(title: 'Success', message: 'Request accepted successfully');
+
+  } catch (e) {
+    // Close loading dialog
+    TFullScreenLoader.stopLoading();
+
+    // Show error message
+    TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+  }
+}
+
+}
+
 
   // Other existing code...
-}
+
