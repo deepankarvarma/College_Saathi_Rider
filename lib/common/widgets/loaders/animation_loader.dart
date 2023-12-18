@@ -11,6 +11,7 @@ class TAnimationLoaderWidget extends StatelessWidget {
       this.showAction = false,
       this.actionText,
       this.onActionPressed});
+
   final String text;
   final String animation;
   final bool showAction;
@@ -49,8 +50,8 @@ class TAnimationLoaderWidget extends StatelessWidget {
                     ),
                   ),
                 )
-// SizedBox
-              : const SizedBox(),
+:const SizedBox(),
+              
         ],
       ),
     );
