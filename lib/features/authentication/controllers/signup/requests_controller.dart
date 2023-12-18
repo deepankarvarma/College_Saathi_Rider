@@ -3,7 +3,9 @@ import 'package:college_saathi_final/common/widgets/loaders/loaders.dart';
 import 'package:college_saathi_final/data/repositories/authentication/authentication_repository.dart';
 import 'package:college_saathi_final/data/repositories/user/user_repository.dart';
 import 'package:college_saathi_final/features/authentication/screens/login/user_details.dart';
+import 'package:college_saathi_final/features/itinery/screens/home/home.dart';
 import 'package:college_saathi_final/features/personalization/models/request_model.dart';
+import 'package:college_saathi_final/navigation_menu.dart';
 import 'package:college_saathi_final/utils/constants/image_strings.dart';
 import 'package:college_saathi_final/utils/constants/sizes.dart';
 import 'package:college_saathi_final/utils/popups/full_screen_loader.dart';
@@ -61,68 +63,117 @@ class RequestController extends GetxController {
       ), // OutlinedButton
     );
   }
+
 // ...
-  
-void acceptRequest(RequestModel request) async {
-  try {
-    
-    TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
+  void completeRequest(RequestModel request) async {
+    try {
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
-    String driverId = FirebaseAuth.instance.currentUser?.uid ?? '';
+      String driverId = request.id;
 
-    DocumentSnapshot driverSnapshot = await FirebaseFirestore.instance
-        .collection('Drivers')
-        .doc(driverId)
-        .get();
-
-    if (driverSnapshot.exists) {
-      // Get driver details
-      String driverName = driverSnapshot['FirstName'] + ' ' + driverSnapshot['LastName'];
-      String driverPhone = driverSnapshot['PhoneNumber'];
-
-      // Get the user ID from the request
-      String userId = request.id; // Assuming the request ID is the user ID
-
-      // Update Request document in Firestore
-      await FirebaseFirestore.instance
+      DocumentSnapshot driverSnapshot = await FirebaseFirestore.instance
           .collection('Requests')
-          .doc(request.id)
-          .update({
-        'Driver Id': driverId,
-        'Driver Phone No': driverPhone,
-        'Driver Name': driverName,
-        'User Id': userId, // New field
-        'Is Accepted': true,
-      });
+          .doc(driverId)
+          .get();
 
+      if (driverSnapshot.exists) {
+        // Generate a unique identifier for the completed request
+        String requestId = DateTime.now().toUtc().toIso8601String();
+
+        // Explicitly cast to Map<String, dynamic>
+        Map<String, dynamic> requestData =
+            driverSnapshot.data() as Map<String, dynamic>;
+
+        // Create a new document in the "History" collection with a unique identifier
+        await FirebaseFirestore.instance
+            .collection('History')
+            .doc(driverId)
+            .collection('CompletedRequests')
+            .doc(requestId)
+            .set(requestData);
+
+        // Remove the document from the "Requests" collection
+        await FirebaseFirestore.instance
+            .collection('Requests')
+            .doc(driverId)
+            .delete();
+
+        // Close loading dialog
+        TFullScreenLoader.stopLoading();
+
+        // Show success message or perform any other necessary actions
+        // Assuming you want to show a success message
+        TLoaders.successSnackBar(
+            title: 'Success', message: 'Ride Completed successfully');
+        Get.offAll(() => const NavigationMenu());
+      }
+    } catch (e) {
       // Close loading dialog
       TFullScreenLoader.stopLoading();
 
-      // Show success message or perform any other necessary actions
-
-      // Assuming you want to show a success message
-      TLoaders.successSnackBar(
-          title: 'Success', message: 'Request accepted successfully');
-      Get.offAll(() => UserDetails(request: request));
-    } else {
-      // Close loading dialog
-      TFullScreenLoader.stopLoading();
-
-      // Show error message if driver details are not found
-      TLoaders.warningSnackBar(
-          title: 'Oh Snap!', message: 'Driver details not found');
+      // Show error message
+      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
     }
-  } catch (e) {
-    // Close loading dialog
-    TFullScreenLoader.stopLoading();
+  }
 
-    // Show error message
-    TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+  void acceptRequest(RequestModel request) async {
+    try {
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
+
+      String driverId = FirebaseAuth.instance.currentUser?.uid ?? '';
+
+      DocumentSnapshot driverSnapshot = await FirebaseFirestore.instance
+          .collection('Drivers')
+          .doc(driverId)
+          .get();
+
+      if (driverSnapshot.exists) {
+        // Get driver details
+        String driverName =
+            driverSnapshot['FirstName'] + ' ' + driverSnapshot['LastName'];
+        String driverPhone = driverSnapshot['PhoneNumber'];
+
+        // Get the user ID from the request
+        String userId = request.id; // Assuming the request ID is the user ID
+
+        // Update Request document in Firestore
+        await FirebaseFirestore.instance
+            .collection('Requests')
+            .doc(request.id)
+            .update({
+          'Driver Id': driverId,
+          'Driver Phone No': driverPhone,
+          'Driver Name': driverName,
+          'User Id': userId, // New field
+          'Is Accepted': true,
+        });
+
+        // Close loading dialog
+        TFullScreenLoader.stopLoading();
+
+        // Show success message or perform any other necessary actions
+
+        // Assuming you want to show a success message
+        TLoaders.successSnackBar(
+            title: 'Success', message: 'Request accepted successfully');
+        Get.offAll(() => UserDetails(request: request));
+      } else {
+        // Close loading dialog
+        TFullScreenLoader.stopLoading();
+
+        // Show error message if driver details are not found
+        TLoaders.warningSnackBar(
+            title: 'Oh Snap!', message: 'Driver details not found');
+      }
+    } catch (e) {
+      // Close loading dialog
+      TFullScreenLoader.stopLoading();
+
+      // Show error message
+      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+    }
   }
 }
-
-
- }
 
 
   // Other existing code...

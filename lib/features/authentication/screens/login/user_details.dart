@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:college_saathi_final/features/authentication/controllers/signup/requests_controller.dart';
 import 'package:college_saathi_final/features/authentication/screens/login/login.dart';
 import 'package:college_saathi_final/features/personalization/controllers/user_controller.dart';
 import 'package:college_saathi_final/features/personalization/models/request_model.dart';
@@ -21,7 +22,7 @@ class UserDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UserController());
+    final controller = Get.put(RequestController());
     return Scaffold(
       appBar: const TAppBar(title: Text('Rider Details')),
       body: SingleChildScrollView(
@@ -98,7 +99,7 @@ class UserDetails extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () =>controller.completeRequest(request),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         Colors.green,
