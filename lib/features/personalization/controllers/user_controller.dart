@@ -101,7 +101,7 @@ class UserController extends GetxController {
   // Delete User Account
   void deleteUserAccount() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing', TImages.appleLogo);
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
       /// First re-authenticate user
       final auth = AuthenticationRepository.instance;
@@ -128,7 +128,7 @@ class UserController extends GetxController {
   // Reauthenticate before deleting
   Future<void> reAuthenticateEmailandPasswordUser() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Processing', TImages.acerlogo);
+      TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 //Check Internet
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

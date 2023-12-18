@@ -35,11 +35,11 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   capped_progress_indicator: ^0.0.2
   firebase_core: ^2.23.0
-  lottie: ^2.7.0
   connectivity_plus: ^5.0.1
   firebase_auth: ^4.14.0
   cloud_firestore: ^4.13.1
   google_sign_in: ^6.2.0
+  lottie: ^2.7.0
   
 
 

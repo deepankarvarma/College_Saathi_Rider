@@ -4,19 +4,21 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class TAnimationLoaderWidget extends StatelessWidget {
-  const TAnimationLoaderWidget(
-      {super.key,
-      required this.text,
-      required this.animation,
-      this.showAction = false,
-      this.actionText,
-      this.onActionPressed});
+  const TAnimationLoaderWidget({
+    super.key,
+    required this.text,
+    required this.animation,
+    this.showAction = false,
+    this.actionText,
+    this.onActionPressed,
+  });
 
   final String text;
   final String animation;
   final bool showAction;
   final String? actionText;
   final VoidCallback? onActionPressed;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,7 +34,6 @@ class TAnimationLoaderWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
-// Text
           const SizedBox(height: TSizes.defaultSpace),
           showAction
               ? SizedBox(
@@ -48,10 +49,12 @@ class TAnimationLoaderWidget extends StatelessWidget {
                           .bodyMedium!
                           .apply(color: TColors.light),
                     ),
+// Text
                   ),
+// OutlinedButton
                 )
-:const SizedBox(),
-              
+// SizedBox
+              : const SizedBox(),
         ],
       ),
     );

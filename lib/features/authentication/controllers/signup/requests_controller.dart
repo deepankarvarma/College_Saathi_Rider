@@ -66,7 +66,7 @@ class RequestController extends GetxController {
 void acceptRequest(RequestModel request) async {
   try {
     // Open loading dialog
-    TFullScreenLoader.openLoadingDialog('Processing', TImages.appleLogo);
+    TFullScreenLoader.openLoadingDialog('Processing', TImages.docerAnimation);
 
     // Get the current user ID (driver ID)
     String driverId = FirebaseAuth.instance.currentUser?.uid ?? '';

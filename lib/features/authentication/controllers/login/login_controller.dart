@@ -36,7 +36,7 @@ class LoginController extends GetxController {
     try {
 // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are processing your information...', TImages.appleLogo);
+          'We are processing your information...', TImages.docerAnimation);
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -74,7 +74,7 @@ class LoginController extends GetxController {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'Logging you in...', TImages.appleLogo);
+          'Logging you in...', TImages.docerAnimation);
 // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

@@ -44,7 +44,7 @@ class HomeController extends GetxController {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are processing your information...', TImages.appleLogo);
+          'We are processing your information...', TImages.docerAnimation);
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
@@ -101,7 +101,7 @@ class HomeController extends GetxController {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are updating your information...', TImages.staticSuccessIllustration);
+          'We are updating your information...', TImages.docerAnimation);
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
