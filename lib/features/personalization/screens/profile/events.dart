@@ -22,7 +22,7 @@ class EventsPage extends StatelessWidget {
             if (requestController.requests.isEmpty) {
               return const Center(
                 child: Text(
-                  'No Booking Requests',
+                  'No Events Available',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
               );
