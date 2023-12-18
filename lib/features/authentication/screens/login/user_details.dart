@@ -49,23 +49,23 @@ class UserDetails extends StatelessWidget {
               ),
 
               const TSectionHeading(
-                  title: 'Personal Information for ', showActionButton: false),
+                  title: 'Personal Information', showActionButton: false),
               const SizedBox(
                 height: TSizes.spaceBtwItems,
               ),
               TProfileMenu(
                     title: 'Name',
-                    value: '${request.id}',
+                    value: '${request.firstName} ${request.lastName}',
                     onPressed: () {}),
               
               TProfileMenu(
                     title: 'Email',
-                    value: '${request.id}',
+                    value: '${request.email}',
                     onPressed: () {}),
               
               TProfileMenu(
                     title: 'Phone Number',
-                    value: '${request.id}',
+                    value: '${request.phoneNumber}',
                     onPressed: () {}),
               
               const SizedBox(
