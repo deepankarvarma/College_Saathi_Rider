@@ -60,12 +60,17 @@ class RequestsPage extends StatelessWidget {
                     ),
                     // Sign Up Button
                     SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () => controller.fetchRequests(),
-                        child: const Text('Accept'),
-                      ),
-                    )
+  width: double.infinity,
+  child: ElevatedButton(
+    onPressed: () async {
+      await controller.fetchRequests();
+      if (controller.requests.isNotEmpty) {
+        controller.showAcceptRequestPopup(controller.requests.first);
+      }
+    },
+    child: const Text('Accept'),
+  ),
+)
                     ],
                   ),
                 );

@@ -25,35 +25,39 @@ class RequestController extends GetxController {
 
   // Fetch all requests
   Future<void> fetchRequests() async {
-    try {
-      final allRequests = await userRepository.fetchRequests(); // Adjust the method name accordingly
-      requests(allRequests);
-      acceptRequestPopup(allRequests.first);
-    } catch (e) {
-      requests(<RequestModel>[]); // Handle the error as needed
-    }
+  try {
+    final allRequests = await userRepository.fetchRequests();
+    requests(allRequests);
+  } catch (e) {
+    requests(<RequestModel>[]); // Handle the error as needed
   }
-  void acceptRequestPopup(RequestModel request) {
-    Get.defaultDialog(
-      contentPadding: const EdgeInsets.all(TSizes.md),
-      title: 'Accept Request',
-      middleText:
-          'Are you sure you want to accept this ride request? The ride cannot be cancelled afterwards.',
-      confirm: ElevatedButton(
-        onPressed: () async => acceptRequest(request),
-        style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green,
-            side: const BorderSide(color: Colors.green)),
-        child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
-            child: Text('Accept')),
-      ), // ElevatedButton
-      cancel: OutlinedButton(
-        child: const Text('Back'),
-        onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-      ), // OutlinedButton
-    );
-  }
+}
+  void showAcceptRequestPopup(RequestModel request) {
+  Get.defaultDialog(
+    contentPadding: const EdgeInsets.all(TSizes.md),
+    title: 'Accept Request',
+    middleText:
+        'Are you sure you want to accept this ride request? The ride cannot be cancelled afterwards.',
+    confirm: ElevatedButton(
+      onPressed: () async {
+        acceptRequest(request);
+        Navigator.of(Get.overlayContext!).pop(); // Close the dialog after accepting
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.green,
+        side: const BorderSide(color: Colors.green),
+      ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: TSizes.lg),
+        child: Text('Accept'),
+      ),
+    ), // ElevatedButton
+    cancel: OutlinedButton(
+      child: const Text('Back'),
+      onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+    ), // OutlinedButton
+  );
+}
 // ...
 
 void acceptRequest(RequestModel request) async {
