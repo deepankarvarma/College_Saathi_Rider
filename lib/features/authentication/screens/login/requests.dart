@@ -7,12 +7,13 @@ import 'package:get/get.dart';
 class RequestsPage extends StatelessWidget {
   // Reference to the RequestController
   final RequestController requestController = Get.put(RequestController());
-  final controller=Get.put(RequestController());
+  final controller = Get.put(RequestController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: TAppBar(
-        title: Text('User Requests'),showBackArrow: true,
+        title: Text('User Requests'),
+        showBackArrow: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -20,7 +21,12 @@ class RequestsPage extends StatelessWidget {
           () {
             // Check if data is still loading
             if (requestController.requests.isEmpty) {
-              return Center(child: CircularProgressIndicator());
+              return Center(
+                child: Text(
+                  'No Booking Requests',
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                ),
+              );
             }
 
             // Use the fetched requests data
@@ -37,7 +43,8 @@ class RequestsPage extends StatelessWidget {
                       color: Colors.blueAccent, // Adjust border color
                       width: 2.0, // Adjust border thickness
                     ),
-                    borderRadius: BorderRadius.circular(12), // Adjust border radius
+                    borderRadius:
+                        BorderRadius.circular(12), // Adjust border radius
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,21 +63,22 @@ class RequestsPage extends StatelessWidget {
                       Text('Destination: ${request.destination}'),
                       // Add more fields as needed
                       const SizedBox(
-                      height: TSizes.spaceBtwSections/2,
-                    ),
-                    // Sign Up Button
-                    SizedBox(
-  width: double.infinity,
-  child: ElevatedButton(
-    onPressed: () async {
-      await controller.fetchRequests();
-      if (controller.requests.isNotEmpty) {
-        controller.showAcceptRequestPopup(controller.requests.first);
-      }
-    },
-    child: const Text('Accept'),
-  ),
-)
+                        height: TSizes.spaceBtwSections / 2,
+                      ),
+                      // Sign Up Button
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            await controller.fetchRequests();
+                            if (controller.requests.isNotEmpty) {
+                              controller.showAcceptRequestPopup(
+                                  controller.requests.first);
+                            }
+                          },
+                          child: const Text('Accept'),
+                        ),
+                      )
                     ],
                   ),
                 );
@@ -82,4 +90,3 @@ class RequestsPage extends StatelessWidget {
     );
   }
 }
-
