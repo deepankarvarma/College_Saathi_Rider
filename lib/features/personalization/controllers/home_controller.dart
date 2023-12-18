@@ -101,7 +101,7 @@ class HomeController extends GetxController {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are updating your information...', TImages.docerAnimation);
+          'We are updating your information...', TImages.staticSuccessIllustration);
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

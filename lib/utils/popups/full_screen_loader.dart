@@ -7,48 +7,33 @@ import 'package:get/get.dart';
 class TFullScreenLoader {
   static void openLoadingDialog(String text, String animation) {
     showDialog(
-      context: Get.overlayContext!,
-      barrierDismissible: false,
-      builder: (_) => _FullScreenLoaderDialog(
-        text: text,
-        animation: animation,
-      ),
-    );
-  }
-
-  static void stopLoading() {
-    Navigator.of(Get.overlayContext!).pop();
-  }
-}
-
-class _FullScreenLoaderDialog extends StatelessWidget {
-  final String text;
-  final String animation;
-
-  const _FullScreenLoaderDialog({
-    required this.text,
-    required this.animation,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: THelperFunctions.isDarkMode(context) ? TColors.dark : TColors.white,
-        width: double.infinity,
-        height: double.infinity,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TAnimationLoaderWidget(text: text, animation: animation),
-              ],
-            ),
+      context:
+          Get.overlayContext!, // Use Get.overlayContext for overlay dialogs
+      barrierDismissible:
+          false, // The dialog can't be dismissed by tapping outside it
+      builder: (_) => PopScope(
+        canPop: false, // Disable popping with the back button
+        child: Container(
+          color: THelperFunctions.isDarkMode(Get.context!)
+              ? TColors.dark
+              : TColors.white,
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            children: [
+              const SizedBox(height: 250), // Adjust the spacing as needed
+              TAnimationLoaderWidget(text: text, animation: animation),
+            ],
           ),
         ),
       ),
     );
   }
-}
 
+  /// Stop the currently open loading dialog.
+  /// This method doesn't return anything.
+//
+  static stopLoading() {
+    Navigator.of(Get.overlayContext!).pop();
+  }
+}
