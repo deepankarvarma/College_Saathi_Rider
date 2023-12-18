@@ -1,6 +1,7 @@
 import 'package:college_saathi_final/common/widgets/loaders/loaders.dart';
 import 'package:college_saathi_final/data/repositories/user/user_repository.dart';
 import 'package:college_saathi_final/data/services/network_manager.dart';
+import 'package:college_saathi_final/features/authentication/controllers/signup/requests_controller.dart';
 import 'package:college_saathi_final/features/authentication/screens/login/requests.dart';
 import 'package:college_saathi_final/features/personalization/controllers/user_controller.dart';
 import 'package:college_saathi_final/utils/constants/image_strings.dart';
@@ -79,8 +80,14 @@ class HomeController extends GetxController {
       // TLoaders.successSnackBar(
       //     title: 'Congratulations', message: 'Your request has been sent');
 
+
+    //   RequestController requestController = RequestController.instance;
+    // await requestController.fetchRequest();
+    
+    // Navigate to the requests page
+    Get.to(() => RequestsPage());
       // Move to Verify Email Screen
-      Get.to(() => const requests());
+  
     } catch (e) {
       // Remove Loader
       TFullScreenLoader.stopLoading();
@@ -94,7 +101,7 @@ class HomeController extends GetxController {
     try {
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-          'We are updating your information...', TImages.acerlogo);
+          'We are updating your information...', TImages.docerAnimation);
       // Check internet connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {

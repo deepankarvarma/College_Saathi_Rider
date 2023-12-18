@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		j5bbv54woMkHHqCR6KGss5BYyeA=
+		yjOiYAHtUSvD4qhj83DjJ1fmnZQ=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,15 +54,15 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		WXjs7YigeDIJsEAKoW9ia56jgAw=
+		jFGSvsCpusANn1JkudX+CiZ2qTs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
-		Acoz8fMa7EmFAatoCoFIVCnuxJQ=
+		rGKrLSbDnrEKTbnHeAoUpGUCXHM=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
-		85C3hWCX3qxyPYYPZ+UdpNPMfCg=
+		b3nCWmw521JX/eqoHZ6MjT96efs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
 		<data>
@@ -215,6 +215,70 @@
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/payment_methods/visa.png</key>
 		<data>
 		N+QDughbtL4Foz7fVayj7NrgFOo=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/104368-thank-you.json</key>
+		<data>
+		Q0YS4Cl0Qloc62UvnTLBkshbp0s=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/110052-paper-plane.json</key>
+		<data>
+		mIvAtK0XQEJAjAQChkDT6wPgS4g=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/120978-payment-successful.json</key>
+		<data>
+		eakwRZR1fI9HBGnicaP9IC+JYZc=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/136491-animation-lottie-car-rides.json</key>
+		<data>
+		B2LR7+bOof8nvPns9MSOLoO2F9s=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/140429-pencil-drawing.json</key>
+		<data>
+		O4qeBjF7eui16ffyEyoPZRS1ujg=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/141397-loading-juggle.json</key>
+		<data>
+		CCCWAmOlZSC0bh3x3XrkaxRzdec=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/141594-animation-of-docer.json</key>
+		<data>
+		GCruXlfAmNn5K6I1/vZWtwazT/Q=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/53207-empty-file.json</key>
+		<data>
+		o2gkWCGE/HKNc2qBX5zteSPCxQ4=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/67263-security-icon-transparent.json</key>
+		<data>
+		vsKNBRVBH7bQ10KyexhGzlL6lyU=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/72462-check-register.json</key>
+		<data>
+		6LzstlK83x2sMdDvsR03/19lGgA=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/72785-searching.json</key>
+		<data>
+		i54l4I6SIl8Z4cZiIq8VzilVwwc=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/98783-packaging-in-progress.json</key>
+		<data>
+		PTeYng+s0QnLtlOP3gFzxT9zbwY=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/cloud-uploading-animation.json</key>
+		<data>
+		MAJVBcw4NSW6TK2WH9phXaH6+3I=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/lady-adding-product-in-cart-animation.json</key>
+		<data>
+		nHAvQcxxbjZ4hJNLBNz6natQWVc=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/loader-animation.json</key>
+		<data>
+		AuADyF/fOe8e++oJnuWjxBAkXrI=
+		</data>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/order-complete-car-delivery-animation.json</key>
+		<data>
+		KvEdXgX+zfkQf6S7ERgpCFjMs/k=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/sammy-line-come-back-later.png</key>
 		<data>
@@ -654,7 +718,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		JAGi9msvtGKFm1nWcR387xhst5A=
+		jFLtBoaT3MTilxZZCOlYn8ZD/FU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -1527,7 +1591,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KlA8kX2Q+7w3LPULlDxe5LsgYfHT2zWv6uHgUDAKT0Q=
+			+9Pbg+btlJPCP1F8bn4qU9PCsoW2IHtCrzEqmwGM0bY=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1541,21 +1605,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			C7MpIpWGH9RIILEwwvfRzb7PhvGwrBEZ9Cpx1lVH7Vk=
+			qo4Eu/F1GhqILq7dll7wiTrTW7s30+QKUPEf0CJPNgU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZEv0IbAm+NVf8+Nfr5z3IgE7jYHExSHZKljakNI2JQQ=
+			rIR919fyvh6jFC8tae2MsXA+zvTxdTTYv2j7XfbOUGs=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			YzybE8XVkG/nOWQUjdVttMy+U7ZCzaUiXHySyYP3Qhc=
+			yGbY+aLQEt20QpP8J+bZ5aqbdBFr3AvrppYcsgFvwmQ=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/FontManifest.json</key>
@@ -1822,6 +1886,118 @@
 			<key>hash2</key>
 			<data>
 			fJ8HvEvO+27CcjYIGd211QwLV7bBNLYhbkrleFy7wFc=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/104368-thank-you.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			toQF8A6DjdB4GMFxzVu7TVB/S2TmcSEoKs068WIja2k=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/110052-paper-plane.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			0hT/VBTggj86h75+dYyBmyRu5CwAf/uEdylIGsucVm4=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/120978-payment-successful.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			bR5+HkmFttbloX8vvBhgzmHXYokveqiTWwmudAfgXv4=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/136491-animation-lottie-car-rides.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			X92rTmKDuLn5bWmu6URSv1QWKhY8VXmpx77Z7ZPHIOw=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/140429-pencil-drawing.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			he+woUFqQkFr7bIOrf+ovdwyb9jX8nSquwDrpEoMtFY=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/141397-loading-juggle.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			dnh3e8eSj/PpUZnJ0b+QTZZl0loihq72OtUeM/S5eko=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/141594-animation-of-docer.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			ramSHN+dBaMPFjJgqy5mVaBhg7VxEa6VKJvEOF1GjJI=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/53207-empty-file.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qbc4XSVXdcc2+hTbLxNOR+TbvldxNDcwE/5j5R0kvwQ=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/67263-security-icon-transparent.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YUbKldOLd46feGdC8rkbD11SLXbcoiVOUey8dgs7Gcw=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/72462-check-register.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			LT22yPGU92oKoHw21rRs09NniQnK50bB6lK8sUWhjq0=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/72785-searching.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HHqvR982EaMI4tSo6Ng0Lu1e9BmA3PtfHM56Xsz9hpI=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/98783-packaging-in-progress.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			8BYjoIy5ca5h65tZQNyfdC7QYIZs4U7zHLOb3B4EJJk=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/cloud-uploading-animation.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			//FnzwX28RE77jGvyCzi8mzZOzTz2NmBZBDdEEaSv8A=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/lady-adding-product-in-cart-animation.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Lc9kkfghsmZaYDes6rvCf5Wfg39PlbXZlyG9ZJpEwO4=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/loader-animation.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QvBH7BDFrAx6g4cgl6l/KPSSMR8594DUC0O8bseatqs=
+			</data>
+		</dict>
+		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/order-complete-car-delivery-animation.json</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			nQYZFfQSBhwQhpwzR1s2WicKBA4gNKb0wGRelm9VMeI=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/animations/sammy-line-come-back-later.png</key>
@@ -2591,7 +2767,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RT6+vUkJPbLkRPzuuOQAw7MhUyV+TbkMqKtSIdqbgfQ=
+			PydwZ1mGPuJRUC+HlyQfwmjkKAolNaoTmoxN8UeCv6Q=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

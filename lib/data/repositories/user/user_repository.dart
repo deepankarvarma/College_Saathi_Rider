@@ -50,27 +50,26 @@ class UserRepository extends GetxController {
     }
   }
   // Function to fetch user details on the basis of User ID
-  Future<RequestModel> fetchRequestDetails() async {
-    try {
-      final documentSnapshot = await _db
-          .collection("Requests")
-          .doc(AuthenticationRepository.instance.authUser?.uid)
-          .get();
-      if (documentSnapshot.exists) {
-        return RequestModel.fromSnapshot(documentSnapshot);
-      } else {
-        return RequestModel.empty();
-      }
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const TFormatException();
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
-    }
+  Future<List<RequestModel>> fetchRequests() async {
+  try {
+    final querySnapshot = await _db.collection("Requests").get();
+    
+    final requests = querySnapshot.docs
+        .map((doc) => RequestModel.fromSnapshot(doc))
+        .toList();
+
+    return requests;
+  } on FirebaseException catch (e) {
+    throw TFirebaseException(e.code).message;
+  } on FormatException catch (_) {
+    throw const TFormatException();
+  } on PlatformException catch (e) {
+    throw TPlatformException(e.code).message;
+  } catch (e) {
+    throw 'Something went wrong. Please try again';
   }
+}
+
 
   Future<bool> getUserAvailability() async {
     try {
