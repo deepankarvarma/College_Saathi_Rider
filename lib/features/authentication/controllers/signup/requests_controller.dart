@@ -62,7 +62,7 @@ class RequestController extends GetxController {
     );
   }
 // ...
-
+  
 void acceptRequest(RequestModel request) async {
   try {
     
@@ -103,7 +103,7 @@ void acceptRequest(RequestModel request) async {
       // Assuming you want to show a success message
       TLoaders.successSnackBar(
           title: 'Success', message: 'Request accepted successfully');
-      Get.to(() => UserDetails(request: request));
+      Get.offAll(() => UserDetails(request: request));
     } else {
       // Close loading dialog
       TFullScreenLoader.stopLoading();

@@ -17,7 +17,7 @@ import 'package:iconsax/iconsax.dart';
 class UserDetails extends StatelessWidget {
   final RequestModel request;
   const UserDetails({required this.request, Key? key}) : super(key: key);
-
+  
 
   @override
   Widget build(BuildContext context) {
