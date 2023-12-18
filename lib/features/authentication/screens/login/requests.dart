@@ -50,7 +50,7 @@ class RequestsPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Request from ${request.id}',
+                        'Request from ${request.firstName} ${request.lastName}',
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
