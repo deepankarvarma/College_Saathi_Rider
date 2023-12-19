@@ -1,4 +1,8 @@
+
+
 import 'package:college_saathi_final/features/personalization/controllers/user_controller.dart';
+import 'package:college_saathi_final/features/personalization/screens/profile/important_contacts.dart';
+import 'package:college_saathi_final/features/personalization/screens/profile/vendors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -110,7 +114,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () => controller.makeRequest(),
+                            onPressed: ()=> Get.to(()=> ImportantContacts()),
                             child: const Text('Important Contacts'),
                           ),
                         ),
@@ -118,7 +122,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () => controller.makeRequest(),
+                            onPressed: ()=> Get.to(()=> Vendors()),
                             child: const Text('Vendor Details'),
                           ),
                         ),
