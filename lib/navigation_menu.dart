@@ -30,7 +30,7 @@ class NavigationMenu extends StatelessWidget {
               : TColors.black.withOpacity(0.1),
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Ride History'),
+            // NavigationDestination(icon: Icon(Iconsax.shop), label: 'Ride History'),
             NavigationDestination(icon: Icon(Iconsax.heart), label: 'College Events'),
             NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
           ],
@@ -45,7 +45,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
   final screens = [
     const HomePage(),
-    const ridehistory(),
+    
      EventsPage(),
     const ProfileScreen(),
   ];
