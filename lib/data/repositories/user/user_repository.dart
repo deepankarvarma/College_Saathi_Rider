@@ -58,7 +58,7 @@ class UserRepository extends GetxController {
     try {
       final querySnapshot = await _db
         .collection("Requests")
-        .where("IsAccepted", isEqualTo: false) // Add this filter
+        .where("Is Accepted", isEqualTo: false) // Add this filter
         .get();
 
       final requests = querySnapshot.docs
