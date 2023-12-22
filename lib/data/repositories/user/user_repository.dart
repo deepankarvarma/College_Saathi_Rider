@@ -56,7 +56,10 @@ class UserRepository extends GetxController {
   // Function to fetch user details on the basis of User ID
   Future<List<RequestModel>> fetchRequests() async {
     try {
-      final querySnapshot = await _db.collection("Requests").get();
+      final querySnapshot = await _db
+        .collection("Requests")
+        .where("IsAccepted", isEqualTo: false) // Add this filter
+        .get();
 
       final requests = querySnapshot.docs
           .map((doc) => RequestModel.fromSnapshot(doc))
