@@ -55,28 +55,24 @@ class UserRepository extends GetxController {
 
   // Function to fetch user details on the basis of User ID
   Future<List<RequestModel>> fetchRequests() async {
-  try {
-    final querySnapshot = await _db
-        .collection("Requests")
-        .where("IsAccepted", isEqualTo: false) // Add this filter
-        .get();
+    try {
+      final querySnapshot = await _db.collection("Requests").get();
 
-    final requests = querySnapshot.docs
-        .map((doc) => RequestModel.fromSnapshot(doc))
-        .toList();
+      final requests = querySnapshot.docs
+          .map((doc) => RequestModel.fromSnapshot(doc))
+          .toList();
 
-    return requests;
-  } on FirebaseException catch (e) {
-    throw TFirebaseException(e.code).message;
-  } on FormatException catch (_) {
-    throw const TFormatException();
-  } on PlatformException catch (e) {
-    throw TPlatformException(e.code).message;
-  } catch (e) {
-    throw 'Something went wrong. Please try again';
+      return requests;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
   }
-}
-
   Future<List<EventsModel>> fetchEvents() async {
     try {
       final querySnapshot = await _db.collection("Events").get();

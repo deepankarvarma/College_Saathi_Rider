@@ -29,7 +29,7 @@ class ImportantContacts extends StatelessWidget {
               );
             }
   
-            // Use the fetched requests dat a
+            // Use the fetched requests data
             return ListView.builder(
               itemCount: requestController.requests.length,
               itemBuilder: (context, index) {
